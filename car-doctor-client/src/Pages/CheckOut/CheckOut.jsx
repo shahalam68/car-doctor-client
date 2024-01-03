@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const CheckOut = () => {
   const service = useLoaderData();
-  const { title, _id,price } = service;
+  const { title, _id,price,img } = service;
   const {user} = useContext(AuthContext);
 
   const handleCheckOut = event =>{
@@ -17,10 +17,23 @@ const CheckOut = () => {
         customerName: name,
         email,
         date,
-        service:_id,
+        service_id:_id,
+        service: title,
+        _img:img,
         price:price
       }
       console.log(order);
+      fetch('http://localhost:5000/checkout',{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json' 
+        },
+        body: JSON.stringify(order)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
   }
 
 
