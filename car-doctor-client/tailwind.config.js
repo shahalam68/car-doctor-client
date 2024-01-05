@@ -8,7 +8,11 @@ export default {
     extend: {
       fontFamily:{
         Inter: ['Inter'],
-      }
+      },
+      colors:{
+        'main': '#FF3811',
+      },
+      
     },
   },
   plugins: [require("daisyui")],

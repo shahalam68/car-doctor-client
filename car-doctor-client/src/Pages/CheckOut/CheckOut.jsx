@@ -23,7 +23,7 @@ const CheckOut = () => {
         price:price
       }
       console.log(order);
-      fetch('http://localhost:5000/checkout',{
+      fetch('http://localhost:5000/booking',{
         method: 'POST',
         headers: {
           'content-type': 'application/json' 

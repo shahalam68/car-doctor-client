@@ -30,7 +30,7 @@ const router = createBrowserRouter([
 
         },
         {
-          path: 'checkout/:id',
+          path: 'booking/:id',
           element:<CheckOut></CheckOut>,
           loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         }
