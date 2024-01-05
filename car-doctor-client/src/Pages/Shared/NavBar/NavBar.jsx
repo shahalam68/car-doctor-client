@@ -4,14 +4,13 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext } from "react";
 
 const NavBar = () => {
-
-  const {user,logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
-    .then(() =>{})
-    .catch( error => console.log(error))
-}
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   const navItems = (
     <>
@@ -21,8 +20,24 @@ const NavBar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      
-      
+      {user?.email ? (
+        <>
+          <li><Link to='/bookings'>My Bookings</Link></li>
+          <li onClick={handleLogOut}>
+            <button className="bg-slate-400 border-slate-400 border-2 h-100 rounded hover:bg-transparent w-[78px]  px-2">
+              Log out
+            </button>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link to="/login">
+            <button className="bg-slate-400 border-slate-400 border-2 h-8 rounded hover:bg-transparent   px-2">
+              Login{" "}
+            </button>
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -60,10 +75,12 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-secondary mr-8">Appointment</button>
+        <button className="btn btn-outline btn-secondary mr-8">
+          Appointment
+        </button>
       </div>
+
       
-      {user?.email?<li onClick={handleLogOut} ><button className="bg-slate-400 border-slate-400 border-2 h-100 rounded hover:bg-transparent w-[78px]  px-2" >Log out</button></li>:<li><Link to="/login"><button className="bg-slate-400 border-slate-400 border-2 h-8 rounded hover:bg-transparent   px-2">Login </button></Link></li>}
     </div>
   );
 };

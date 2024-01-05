@@ -19,7 +19,7 @@ const CheckOut = () => {
         date,
         service_id:_id,
         service: title,
-        _img:img,
+        img,
         price:price
       }
       console.log(order);
