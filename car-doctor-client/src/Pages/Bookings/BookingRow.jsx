@@ -1,6 +1,6 @@
 const BookingRow = ({booking}) => {
 
-    const {customerName,} = booking;
+    const {customerName,email} = booking;
 
   return (
     <tr>
