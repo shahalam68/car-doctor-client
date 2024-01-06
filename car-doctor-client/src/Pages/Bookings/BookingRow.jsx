@@ -28,7 +28,7 @@ const BookingRow = ({booking}) => {
       <td>
         {customerName}
       </td>
-      <td>{}</td>
+      <td>{email}</td>
       <th>
         <button className="btn btn-ghost btn-xs">details</button>
       </th>
